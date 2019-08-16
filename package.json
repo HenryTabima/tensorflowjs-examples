@@ -1,0 +1,22 @@
+{
+  "name": "tensorflowjs-examples",
+  "version": "1.0.0",
+  "description": "examples and tutorials done with tensoflow js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Henry Tabima Giraldo <henrytabima.dev@gmail.com> (https://henrytabima.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^1.2.7"
+  }
+}
