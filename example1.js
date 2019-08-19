@@ -1,4 +1,4 @@
-import * as tf from '@tensorflow/tfjs'
+const tf = require('@tensorflow/tfjs')
 
 const kgToLbs = kg => kg * 2.2
 
@@ -8,7 +8,7 @@ const ys = tf.tensor(Array.from({ length: 2000 }, (_, i) => kgToLbs(i)))
 async function trainModel () {
   const model = tf.sequential()
 
-  model.add(tf.layer.dense({
+  model.add(tf.layers.dense({
     units: 1,
     inputShape: 1
   }))
@@ -19,11 +19,18 @@ async function trainModel () {
   })
 
   await model.fit(xs, ys, {
-    epochs: 100,
+    epochs: 500,
     shuffle: true
   })
+
+  return model
 }
 
-trainModel().then(() => {
+trainModel().then(model => {
   console.log('Model trained')
+  const lbs = model
+    .predict(tf.tensor([10]))
+    .asScalar()
+    .dataSync()
+  console.log(`10 Kg to Lbs: ${lbs}`)
 })
